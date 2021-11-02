@@ -22,7 +22,6 @@ namespace Account_Creator_Back.Services
                 DisplayName = user.GivenName + " " + user.Surname,
                 GivenName = user.GivenName,
                 Surname = user.Surname,
-                Mail = user.Mail,
                 JobTitle = user.JobTitle,
                 OfficeLocation = user.OfficeLocation,
                 PasswordProfile = new PasswordProfile
@@ -33,7 +32,7 @@ namespace Account_Creator_Back.Services
                 },
                 AccountEnabled = true,
                 MailNickname = user.GivenName + user.Surname,
-                UserPrincipalName = $"{user.GivenName}_{user.Surname}@SoftserveCarProject.onmicrosoft.com"
+                UserPrincipalName = $"{user.GivenName}{user.Surname}@SoftserveCarProject.onmicrosoft.com"
             };
 
             return _graphServiceClient.Users.Request().AddAsync(userToAdd);
